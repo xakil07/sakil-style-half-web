@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakil Style Half - Premium T-Shirts @ 369৳</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#16a34a',
+                            600: '#15803d',
+                            700: '#15803d',
+                            dark: '#0f172a',
+                            accent: '#dc2626'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* Custom scrollbar for cart modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Subtle floating pulse animation for WhatsApp button */
+        @keyframes float-pulse {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-4px) scale(1.03); }
+        }
+        .floating-wa {
+            animation: float-pulse 3s infinite ease-in-out;
+        }
+
+        .modal-backdrop {
+            background-color: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-lg border-b border-slate-800">
+        <!-- Top Announcement Bar -->
+        <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-white text-xs font-semibold py-1.5 px-4 text-center tracking-wide shadow-inner">
+            🔥 Exclusive Offer: Any Premium Half-Sleeve T-Shirt at Just <span class="text-yellow-300 font-extrabold text-sm">369৳</span>!
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo / Title -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-md shadow-emerald-900/50">
+                    <i class="fa-solid fa-shirt text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
+                        Sakil Style Half
+                    </h1>
+                    <p class="text-xs text-emerald-400 font-medium tracking-wide">Trendy Streetwear & Casuals</p>
+                </div>
+            </div>
+
+            <!-- Header Actions / Cart Button -->
+            <div class="flex items-center space-x-3">
+                <button onclick="openCartModal()" class="relative bg-slate-800 hover:bg-slate-700 text-slate-100 px-4 py-2.5 rounded-xl border border-slate-700 transition duration-200 flex items-center space-x-2.5 shadow-sm active:scale-95">
+                    <i class="fa-solid fa-bag-shopping text-emerald-400 text-lg"></i>
+                    <span class="font-semibold text-sm hidden sm:inline">My Cart</span>
+                    <span id="cart-count" class="bg-emerald-500 text-white text-xs font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center shadow">
+                        0
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                <i class="fa-solid fa-sparkles"></i> 2026 Summer Collection
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                Upgrade Your Wardrobe For <span class="text-emerald-400 underline decoration-emerald-500 decoration-4 underline-offset-4">369৳</span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                Discover soft, breathable cotton half-sleeve t-shirts designed for maximum comfort and high-street modern fashion. Fast home delivery available across Bangladesh.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Product Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
+            <div>
+                <h3 class="text-2xl font-bold text-slate-900">Featured Half-Sleeves</h3>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">Showing all 7 trending premium designs</p>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm px-3.5 py-1.5 rounded-lg font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-tag text-emerald-600"></i> Fixed Price: 369৳
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+            <!-- Dynamically Rendered via JS -->
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/8801321543071?text=Hello%20Sakil%20Style%20Half,%20I%20have%20a%20question%20about%20your%20t-shirts." 
+       target="_blank" 
+       class="floating-wa fixed bottom-6 right-6 z-30 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-xl shadow-emerald-600/40 border-2 border-white transition-all duration-300 group"
+       title="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg pointer-events-none hidden sm:block">
+            Need help? Chat with us!
+        </span>
+    </a>
+
+    <!-- Product Details Modal -->
+    <div id="detailsModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all relative border border-slate-100">
+            <!-- Close Button -->
+            <button onclick="closeDetailsModal()" class="absolute top-3 right-3 z-10 bg-slate-900/60 hover:bg-slate-900 text-white w-9 h-9 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Image Container -->
+            <div class="relative bg-slate-100 h-72 sm:h-80 overflow-hidden">
+                <img id="modal-img" src="" alt="Product" class="w-full h-full object-cover">
+                <div class="absolute bottom-3 left-3 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow-md">
+                    Price: 369৳
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="p-6 space-y-4">
+                <div>
+                    <h2 id="modal-title" class="text-xl font-bold text-slate-900"></h2>
+                    <p id="modal-desc" class="text-slate-600 text-sm mt-2 leading-relaxed"></p>
+                </div>
+
+                <!-- Size Selection -->
+                <div class="space-y-2 pt-2 border-t border-slate-100">
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Select Size</label>
+                    <div class="grid grid-cols-3 gap-3" id="modal-size-options">
+                        <button type="button" onclick="selectModalSize('M')" class="modal-size-btn border-2 border-slate-200 hover:border-emerald-500 rounded-xl py-2 text-sm font-bold text-slate-700 text-center transition">M</button>
+                        <button type="button" onclick="selectModalSize('L')" class="modal-size-btn border-2 border-slate-200 hover:border-emerald-500 rounded-xl py-2 text-sm font-bold text-slate-700 text-center transition">L</button>
+                        <button type="button" onclick="selectModalSize('XL')" class="modal-size-btn border-2 border-slate-200 hover:border-emerald-500 rounded-xl py-2 text-sm font-bold text-slate-700 text-center transition">XL</button>
+                    </div>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <button id="modal-add-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-emerald-600/30 transition duration-200 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart & Checkout Modal -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden modal-backdrop flex justify-end">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between transform transition-all relative">
+            <!-- Header -->
+            <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-900 text-white">
+                <div class="flex items-center space-x-2.5">
+                    <i class="fa-solid fa-bag-shopping text-emerald-400 text-lg"></i>
+                    <h2 class="text-lg font-bold">Your Cart</h2>
+                </div>
+                <button onclick="closeCartModal()" class="text-slate-400 hover:text-white text-xl p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items-list" class="p-5 flex-grow overflow-y-auto space-y-4 custom-scrollbar">
+                <!-- Dynamically Rendered -->
+            </div>
+
+            <!-- Footer & Checkout Form -->
+            <div class="p-5 border-t border-slate-100 bg-slate-50/80 space-y-4">
+                <!-- Total Display -->
+                <div class="flex items-center justify-between text-base font-bold text-slate-900 border-b border-slate-200 pb-3">
+                    <span>Total Amount:</span>
+                    <span id="cart-total" class="text-xl text-emerald-600">0৳</span>
+                </div>
+
+                <!-- Customer Details Form -->
+                <div id="checkout-form-container" class="space-y-3">
+                    <h4 class="text-xs font-bold text-slate-600 uppercase tracking-wider">Shipping Details</h4>
+                    
+                    <div>
+                        <input type="text" id="cust-name" placeholder="Full Name *" class="w-full bg-white border border-slate-200 rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+                    </div>
+                    <div>
+                        <input type="tel" id="cust-phone" placeholder="Phone Number (e.g. 017xxxxxxxx) *" class="w-full bg-white border border-slate-200 rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+                    </div>
+                    <div>
+                        <textarea id="cust-address" rows="2" placeholder="Full Delivery Address *" class="w-full bg-white border border-slate-200 rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition resize-none"></textarea>
+                    </div>
+
+                    <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-emerald-600/30 transition duration-200 flex items-center justify-center space-x-2 active:scale-98">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Order via WhatsApp</span>
+                    </button>
+                    <p class="text-[11px] text-center text-slate-500">
+                        <i class="fa-solid fa-shield-halved text-emerald-600"></i> Cash on delivery available across Bangladesh.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+            <p class="text-slate-300 font-semibold text-sm">Sakil Style Half</p>
+            <p>High Quality Cotton T-Shirts • Fixed Rate 369৳ • Fast Delivery</p>
+            <p class="text-slate-500">&copy; 2026 Sakil Style Half. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array of 7 Products with High Quality Apparel T-Shirt Images from Unsplash
+        const products = [
+            { 
+                id: 1, 
+                title: "Abstract Doodle Raglan Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80", 
+                desc: "Premium organic cotton raglan t-shirt featuring stylized chest graphics for a vibrant street look." 
+            },
+            { 
+                id: 2, 
+                title: "Vintage Car Acid Wash Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80", 
+                desc: "Retro-styled vintage automotive graphic on heavy-weight acid wash cotton fabric." 
+            },
+            { 
+                id: 3, 
+                title: "Sporty Piping Black Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80", 
+                desc: "Sleek obsidian black crew neck with breathable knit blend and sleek modern silhouette." 
+            },
+            { 
+                id: 4, 
+                title: "Minimalist Beige Casual Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?auto=format&fit=crop&w=800&q=80", 
+                desc: "Soft earth-tone beige half-sleeve top ideal for daily casual wear and summer outings." 
+            },
+            { 
+                id: 5, 
+                title: "Worldwide Acid Wash Streetwear Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80", 
+                desc: "Bold typography printed on relaxed-fit distressed washed cotton. Designed for urban comfort." 
+            },
+            { 
+                id: 6, 
+                title: "Classic Earth Brown Polo Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80", 
+                desc: "Elegantly tailored brown polo style t-shirt with ribbed collar and comfortable stretch." 
+            },
+            { 
+                id: 7, 
+                title: "Embroidered White Ringer Tee", 
+                price: 369, 
+                img: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=800&q=80", 
+                desc: "Crisp white cotton ringer t-shirt finished with detailed chest emblem embroidery." 
+            }
+        ];
+
+        // Shopping Cart State Array: [{ id, title, price, img, size, qty }]
+        let cart = [];
+        let selectedModalSizeState = 'M';
+        let currentModalProductId = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUI();
+        });
+
+        // Render product grid
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group";
+                
+                card.innerHTML = `
+                    <div class="relative overflow-hidden bg-slate-100 aspect-[4/5] cursor-pointer" onclick="showDetails(${p.id})">
+                        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                            369৳
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-md transform translate-y-2 group-hover:translate-y-0 transition duration-300">
+                                <i class="fa-solid fa-eye"></i> Quick View
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base group-hover:text-emerald-600 transition duration-200 line-clamp-1">${p.title}</h3>
+                            <p class="text-xs text-slate-500 mt-1 line-clamp-2">${p.desc}</p>
+                            <div class="text-lg font-extrabold text-emerald-600 mt-2">${p.price}৳</div>
+                        </div>
+
+                        <div class="space-y-3 pt-2 border-t border-slate-100">
+                            <!-- Size Selector -->
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold text-slate-600">Size:</span>
+                                <div class="flex gap-1.5" id="size-selector-${p.id}">
+                                    <button type="button" onclick="selectGridSize(${p.id}, 'M')" class="size-btn-${p.id} w-7 h-7 text-xs font-bold rounded-lg border border-slate-200 hover:border-emerald-500 transition text-slate-700 active-size bg-emerald-600 text-white border-emerald-600" data-size="M">M</button>
+                                    <button type="button" onclick="selectGridSize(${p.id}, 'L')" class="size-btn-${p.id} w-7 h-7 text-xs font-bold rounded-lg border border-slate-200 hover:border-emerald-500 transition text-slate-700" data-size="L">L</button>
+                                    <button type="button" onclick="selectGridSize(${p.id}, 'XL')" class="size-btn-${p.id} w-7 h-7 text-xs font-bold rounded-lg border border-slate-200 hover:border-emerald-500 transition text-slate-700" data-size="XL">XL</button>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="showDetails(${p.id})" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 rounded-xl transition">
+                                    Details
+                                </button>
+                                <button onclick="addToCartFromGrid(${p.id})" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl transition shadow-md shadow-emerald-600/20 flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-cart-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function selectGridSize(productId, size) {
+            const buttons = document.querySelectorAll(`.size-btn-${productId}`);
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-size') === size) {
+                    btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+                    btn.classList.remove('text-slate-700', 'border-slate-200');
+                } else {
+                    btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
+                    btn.classList.add('text-slate-700', 'border-slate-200');
+                }
+            });
+        }
+
+        function getSelectedGridSize(productId) {
+            const activeBtn = document.querySelector(`.size-btn-${productId}.bg-emerald-600`);
+            return activeBtn ? activeBtn.getAttribute('data-size') : 'M';
+        }
+
+        function selectModalSize(size) {
+            selectedModalSizeState = size;
+            const buttons = document.querySelectorAll('.modal-size-btn');
+            buttons.forEach(btn => {
+                if (btn.innerText.trim() === size) {
+                    btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+                    btn.classList.remove('border-slate-200', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
+                    btn.classList.add('border-slate-200', 'text-slate-700');
+                }
+            });
+        }
+
+        function addToCartFromGrid(id) {
+            const size = getSelectedGridSize(id);
+            addToCart(id, size);
+        }
+
+        function addToCart(id, size) {
+            const product = products.find(p => p.id === id);
+            const existingIndex = cart.findIndex(item => item.id === id && item.size === size);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ ...product, size: size, qty: 1 });
+            }
+
+            updateCartUI();
+            
+            // Show subtle feedback badge on cart button
+            const cartBtn = document.getElementById('cart-count');
+            cartBtn.classList.add('scale-125');
+            setTimeout(() => cartBtn.classList.remove('scale-125'), 200);
+        }
+
+        function updateQuantity(id, size, change) {
+            const item = cart.find(i => i.id === id && i.size === size);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    removeFromCart(id, size);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        function removeFromCart(id, size) {
+            cart = cart.filter(item => !(item.id === id && item.size === size));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-count').innerText = totalQty;
+
+            const listContainer = document.getElementById('cart-items-list');
+            const totalContainer = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12 text-slate-400 space-y-3">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-slate-300"></i>
+                        <p class="text-sm font-semibold">Your cart is empty.</p>
+                        <p class="text-xs">Pick your favorite t-shirts to get started!</p>
+                    </div>
+                `;
+                totalContainer.innerText = `0৳`;
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                html += `
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-200/80 gap-3">
+                        <img src="${item.img}" alt="${item.title}" class="w-14 h-14 rounded-lg object-cover flex-shrink-0">
+                        
+                        <div class="flex-grow min-w-0">
+                            <h4 class="text-xs font-bold text-slate-900 truncate">${item.title}</h4>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Size: <span class="font-bold text-emerald-600">${item.size}</span> | Price: ${item.price}৳</p>
+                            <div class="text-xs font-extrabold text-slate-900 mt-1">${itemTotal}৳</div>
+                        </div>
+
+                        <div class="flex flex-col items-end gap-1 flex-shrink-0">
+                            <!-- Delete Button -->
+                            <button onclick="removeFromCart(${item.id}, '${item.size}')" class="text-slate-400 hover:text-red-500 text-xs transition p-1">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            
+                            <!-- Qty Control -->
+                            <div class="flex items-center border border-slate-300 rounded-lg bg-white overflow-hidden">
+                                <button onclick="updateQuantity(${item.id}, '${item.size}', -1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-600 hover:bg-slate-100">-</button>
+                                <span class="w-6 text-center text-xs font-bold text-slate-800">${item.qty}</span>
+                                <button onclick="updateQuantity(${item.id}, '${item.size}', 1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-600 hover:bg-slate-100">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listContainer.innerHTML = html;
+            totalContainer.innerText = `${total}৳`;
+        }
+
+        function showDetails(id) {
+            currentModalProductId = id;
+            const product = products.find(p => p.id === id);
+            
+            document.getElementById('modal-img').src = product.img;
+            document.getElementById('modal-title').innerText = product.title;
+            document.getElementById('modal-desc').innerText = product.desc;
+
+            selectModalSize('M'); // Reset modal size default
+
+            document.getElementById('modal-add-btn').onclick = function() {
+                addToCart(product.id, selectedModalSizeState);
+                closeDetailsModal();
+                openCartModal();
+            };
+
+            document.getElementById('detailsModal').classList.remove('hidden');
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').classList.add('hidden');
+        }
+
+        function openCartModal() {
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before checking out.');
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('Please complete all shipping information fields (Name, Phone, and Address).');
+                return;
+            }
+
+            let message = `🛍️ *NEW ORDER - SAKIL STYLE HALF*%0A`;
+            message += `----------------------------------------%0A`;
+            message += `👤 *Customer Details:*%0A`;
+            message += `• *Name:* ${encodeURIComponent(name)}%0A`;
+            message += `• *Phone:* ${encodeURIComponent(phone)}%0A`;
+            message += `• *Address:* ${encodeURIComponent(address)}%0A%0A`;
+
+            message += `📦 *Ordered Items:*%0A`;
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                message += `${index + 1}. *${encodeURIComponent(item.title)}*%0A`;
+                message += `   Size: *${item.size}* | Qty: *${item.qty}* | Price: ${itemTotal}৳%0A`;
+            });
+
+            message += `%0A----------------------------------------%0A`;
+            message += `💰 *TOTAL AMOUNT:* *${total}৳*%0A`;
+            message += `💳 *Payment:* Cash on Delivery%0A`;
+            message += `----------------------------------------%0A`;
+            message += `Please confirm my order!`;
+
+            window.open(`https://wa.me/8801321543071?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+```
+
+### Features Included
+1. **7 Realistic Apparel Images:** High-resolution t-shirt photos loaded via Unsplash URLs.
+2. **Interactive Size Selection:** Choose sizes (M, L, XL) directly on each product card or within the quick-view modal.
+3. **Cart Drawer & Controls:** Grouping by size, item quantity controls (`+` / `-`), and direct deletion.
+4. **WhatsApp Order Formatting:** Pre-formats customer details and order items cleanly into a WhatsApp message.
