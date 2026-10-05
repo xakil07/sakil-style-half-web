@@ -42,7 +42,6 @@
             color: #ffffff;
         }
 
-        /* Custom scrollbar for cart modal */
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
@@ -58,7 +57,6 @@
             background: #52525b;
         }
 
-        /* Subtle floating pulse animation for WhatsApp button */
         @keyframes float-pulse {
             0%, 100% { transform: translateY(0) scale(1); }
             50% { transform: translateY(-4px) scale(1.03); }
@@ -77,13 +75,11 @@
 
     <!-- Sticky Navigation Header -->
     <header class="sticky top-0 z-40 bg-black text-white shadow-lg border-b border-zinc-800">
-        <!-- Top Announcement Bar -->
         <div class="bg-zinc-900 text-zinc-300 text-xs font-semibold py-1.5 px-4 text-center tracking-wide shadow-inner border-b border-zinc-800">
             Black & White Edition
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo / Title -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                 <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center shadow-md">
                     <i class="fa-solid fa-shirt text-xl"></i>
@@ -96,7 +92,6 @@
                 </div>
             </div>
 
-            <!-- Header Actions / Cart Button -->
             <div class="flex items-center space-x-3">
                 <button onclick="openCartModal()" class="relative bg-zinc-900 hover:bg-zinc-800 text-white px-4 py-2.5 rounded-xl border border-zinc-700 transition duration-200 flex items-center space-x-2.5 shadow-sm active:scale-95">
                     <i class="fa-solid fa-bag-shopping text-white text-lg"></i>
@@ -148,7 +143,6 @@
        class="floating-wa fixed bottom-6 right-6 z-30 bg-white hover:bg-zinc-200 text-black w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-xl border-2 border-black transition-all duration-300 group"
        title="Chat with us on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
-        <!-- Tooltip -->
         <span class="absolute right-16 bg-zinc-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg pointer-events-none hidden sm:block border border-zinc-800">
             Need help? Chat with us!
         </span>
@@ -157,12 +151,10 @@
     <!-- Product Details Modal -->
     <div id="detailsModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
         <div class="bg-zinc-900 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all relative border border-zinc-800 text-white">
-            <!-- Close Button -->
             <button onclick="closeDetailsModal()" class="absolute top-3 right-3 z-10 bg-black/80 hover:bg-black text-white w-9 h-9 rounded-full flex items-center justify-center transition border border-zinc-700">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
 
-            <!-- Image Container -->
             <div class="relative bg-zinc-950 h-72 sm:h-80 overflow-hidden">
                 <img id="modal-img" src="" alt="Product" class="w-full h-full object-cover">
                 <div class="absolute bottom-3 left-3 bg-white text-black font-bold text-xs px-3 py-1 rounded-full shadow-md">
@@ -170,14 +162,12 @@
                 </div>
             </div>
 
-            <!-- Content Container -->
             <div class="p-6 space-y-4">
                 <div>
                     <h2 id="modal-title" class="text-xl font-bold text-white"></h2>
                     <p id="modal-desc" class="text-zinc-400 text-sm mt-2 leading-relaxed"></p>
                 </div>
 
-                <!-- Size Selection -->
                 <div class="space-y-2 pt-2 border-t border-zinc-800">
                     <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Select Size</label>
                     <div class="grid grid-cols-3 gap-3" id="modal-size-options">
@@ -187,7 +177,6 @@
                     </div>
                 </div>
 
-                <!-- Add to Cart Button -->
                 <button id="modal-add-btn" class="w-full bg-white hover:bg-zinc-200 text-black font-bold py-3 px-4 rounded-xl shadow-lg transition duration-200 flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-cart-plus"></i>
                     <span>Add to Cart</span>
@@ -199,7 +188,6 @@
     <!-- Cart & Checkout Modal -->
     <div id="cartModal" class="fixed inset-0 z-50 hidden modal-backdrop flex justify-end">
         <div class="bg-zinc-900 w-full max-w-md h-full shadow-2xl flex flex-col justify-between transform transition-all relative text-white border-l border-zinc-800">
-            <!-- Header -->
             <div class="p-5 border-b border-zinc-800 flex items-center justify-between bg-black text-white">
                 <div class="flex items-center space-x-2.5">
                     <i class="fa-solid fa-bag-shopping text-white text-lg"></i>
@@ -210,20 +198,15 @@
                 </button>
             </div>
 
-            <!-- Cart Items List -->
             <div id="cart-items-list" class="p-5 flex-grow overflow-y-auto space-y-4 custom-scrollbar">
-                <!-- Dynamically Rendered -->
             </div>
 
-            <!-- Footer & Checkout Form -->
             <div class="p-5 border-t border-zinc-800 bg-zinc-950 space-y-4">
-                <!-- Total Display -->
                 <div class="flex items-center justify-between text-base font-bold text-white border-b border-zinc-800 pb-3">
                     <span>Total Amount:</span>
                     <span id="cart-total" class="text-xl text-white">0৳</span>
                 </div>
 
-                <!-- Customer Details Form -->
                 <div id="checkout-form-container" class="space-y-3">
                     <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Shipping Details</h4>
                     
@@ -259,7 +242,6 @@
     </footer>
 
     <script>
-        // Array of Products
         const products = [
             { 
                 id: 1, 
@@ -358,6 +340,7 @@
 
         function renderProducts() {
             const grid = document.getElementById('product-grid');
+            if (!grid) return;
             grid.innerHTML = '';
 
             products.forEach(p => {
@@ -371,4 +354,11 @@
                             ${p.price}৳
                         </div>
                     </div>
-                    <div class="p-5 space-y-3 flex flex-col flex-grow justify-
+                    <div class="p-5 space-y-3 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h4 class="font-bold text-white text-base group-hover:text-zinc-300 transition cursor-pointer" onclick="showDetails(${p.id})">${p.title}</h4>
+                            <p class="text-xs text-zinc-400 mt-1 line-clamp-2">${p.desc}</p>
+                        </div>
+                        <button onclick="showDetails(${p.id})" class="w-full bg-zinc-800 hover:bg-white hover:text-black text-white text-xs font-bold py-2.5 px-3 rounded-xl transition duration-200 flex items-center justify-center space-x-1.5 border border-zinc-700">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>Qui
