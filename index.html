@@ -129,13 +129,14 @@
 .carousel-track {
   display: flex;
   gap: 20px;
-  animation: scaleItem 3s infinite alternate;
+  animation: marquee 20s linear infinite;
 }
 
-@keyframes scaleItem {
-  0% { transform: scale(0.8); }
-  100% { transform: scale(1); }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
+
 
 </style>
 
@@ -509,15 +510,21 @@
                 return;
             }
 
-            let message = `*New Order - Sakil Style Hub*\n\n*Customer Details:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n*Order Items:*\n`;
-            
-            let total = 0;
-            cart.forEach((item, index) => {
-                message += `${index + 1}. ${item.title} (${item.size}) - Qty: ${item.qty} - ${item.price * item.qty}৳\n`;
-                total += item.price * item.qty;
-            });
+                    let message = "🛍️ *New Order - Sakil Style Hub* 🛍️\n\n👤 *Customer Details:*\n";
+        message += `• *Name:* ${name}\n`;
+        message += `• *Phone:* ${phone}\n`;
+        message += `• *Address:* ${address}\n\n`;
 
-            message += `\n*Total Amount: ${total}৳*`;
+        message += "🛒 *Order Items:*\n";
+        let total = 0;
+        cart.forEach((item, index) => {
+            message += `• *${item.title}*\n`;
+            message += `  📏 Size: ${item.size} | 🛍️ Qty: ${item.qty} | 💰 Price: ${item.price * item.qty}tk\n`;
+            total += item.price * item.qty;
+        });
+
+        message += `\n💰 *Total Amount:* ${total}tk`;
+
 
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/8801321543071?text=${encodedMessage}`, '_blank');
