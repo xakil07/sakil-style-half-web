@@ -361,4 +361,147 @@
                         </div>
                         <button onclick="showDetails(${p.id})" class="w-full bg-zinc-800 hover:bg-white hover:text-black text-white text-xs font-bold py-2.5 px-3 rounded-xl transition duration-200 flex items-center justify-center space-x-1.5 border border-zinc-700">
                             <i class="fa-solid fa-eye"></i>
-                            <span>Qui
+                            <span>Quick View</span>
+                        </button>
+                    </div>
+                `;
+                
+                // এখানে কার্ডটি গ্রিড কন্টেইনারে যুক্ত করা হয়েছে
+                grid.appendChild(card);
+            });
+        }
+
+        function showDetails(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            currentModalProductId = product.id;
+            
+            document.getElementById('modal-img').src = product.img;
+            document.getElementById('modal-title').innerText = product.title;
+            document.getElementById('modal-desc').innerText = product.desc;
+            
+            document.getElementById('detailsModal').classList.remove('hidden');
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').classList.add('hidden');
+        }
+
+        function selectModalSize(size) {
+            selectedModalSizeState = size;
+            document.querySelectorAll('.modal-size-btn').forEach(btn => {
+                if (btn.innerText === size) {
+                    btn.classList.add('border-white', 'bg-zinc-800');
+                } else {
+                    btn.classList.remove('border-white', 'bg-zinc-800');
+                }
+            });
+        }
+
+        function openCartModal() {
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const totalEl = document.getElementById('cart-total');
+            const listEl = document.getElementById('cart-items-list');
+
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            listEl.innerHTML = '';
+
+            if (cart.length === 0) {
+                listEl.innerHTML = `<p class="text-zinc-500 text-center py-10 text-sm">Your cart is empty.</p>`;
+            } else {
+                cart.forEach((item, index) => {
+                    totalCount += item.qty;
+                    totalPrice += item.price * item.qty;
+
+                    const div = document.createElement('div');
+                    div.className = "flex items-center justify-between bg-zinc-950 p-3 rounded-xl border border-zinc-800";
+                    div.innerHTML = `
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.img}" class="w-12 h-12 object-cover rounded-lg">
+                            <div>
+                                <h5 class="text-xs font-bold text-white line-clamp-1">${item.title}</h5>
+                                <p class="text-[11px] text-zinc-400">Size: ${item.size} | Qty: ${item.qty}</p>
+                                <p class="text-xs font-semibold text-white">${item.price * item.qty}৳</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-zinc-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    `;
+                    listEl.appendChild(div);
+                });
+            }
+
+            countEl.innerText = totalCount;
+            totalEl.innerText = totalPrice + '৳';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        document.getElementById('modal-add-btn').addEventListener('click', () => {
+            const product = products.find(p => p.id === currentModalProductId);
+            if (!product) return;
+
+            const existingIndex = cart.findIndex(item => item.id === product.id && item.size === selectedModalSizeState);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    img: product.img,
+                    size: selectedModalSizeState,
+                    qty: 1
+                });
+            }
+
+            updateCartUI();
+            closeDetailsModal();
+            openCartModal();
+        });
+
+        function checkoutWhatsApp() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('অনুগ্রহ করে নাম, ফোন নম্বর এবং সম্পূর্ণ ঠিকানা পূরণ করুন।');
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert('আপনার কার্ট খালি রয়েছে!');
+                return;
+            }
+
+            let message = `*New Order - Sakil Style Hub*\n\n*Customer Details:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n*Order Items:*\n`;
+            
+            let total = 0;
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.title} (${item.size}) - Qty: ${item.qty} - ${item.price * item.qty}৳\n`;
+                total += item.price * item.qty;
+            });
+
+            message += `\n*Total Amount: ${total}৳*`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/8801321543071?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
